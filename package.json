@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-landing-page-starter",
+  "name": "bga-projeto-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "BGA Projeto é um empresa especilizada em desenvolvimento de projetos utilizando tecnologia BIM (Building Information Modeling)",
   "version": "0.1.0",
-  "author": "Alex Macedo <ale@alemacedo.com>, based on work by Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Alexandre Macedo <ale@alemacedo.com>, based on work by Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@popperjs/core": "^2.4.4",
     "bootstrap": "^5.0.0-alpha1",
