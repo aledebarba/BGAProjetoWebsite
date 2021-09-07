@@ -35,7 +35,7 @@ const Sobre = () => {
     { data.status === "ok" && 
         <div className="row justify-content-center">
             <div className="col-sm-12 col-md-4">
-                <img src={'https://www.bgaprojeto.com/admin/wp-content/uploads/2021/08/cropped-BGA-Projeto-Logo@2x.png'} alt='company brand' style={{ width: "100%", maxWidth: "300px", margin: "0 auto" }} />
+                <img src={'https://www.bgaprojeto.com/admin/wp-content/uploads/2021/09/Logo-transparente-texto-em-preto.png'} alt='company brand' style={{ width: "100%", maxWidth: "300px", margin: "0 auto" }} />
             </div>
             <div className="col-sm-12 col-md-4">
                 <h1>{data.content.titulo}</h1>
