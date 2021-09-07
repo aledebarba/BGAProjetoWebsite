@@ -1,66 +1,30 @@
-import React from 'react'
-import { withPrefix } from "gatsby"
-import { AnchorLink } from "gatsby-plugin-anchor-links";
-import logo from '../images/brand-menu-icon.png';
+import React from "react";
+import { navigate } from '@reach/router';
+import { Helmet } from "react-helmet";
 
-const PageLinks = [ 
-    { label: "Home",     to: "/#PageTop" },
-    { label: "About",    to: "/#SectionOne" },
-    { label: "Services", to: "/#SectionTwo" },
-    { label: "Partners", to: "/#SectionThree" },
-    { label: "Portfolio",to: "/#SectionFour" },
-    { label: "Team",     to: "/#SectionFive" },
-    { label: "Contact",  to: "/#Footer" },
-]
-
-const Navbar = (props) => {
-
-    const menuLinks = props.menu ? props.menu : PageLinks;
-
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark fixed-top css-spy-scroll">
-            <div className="container-fluid">
-                <AnchorLink className="navbar-brand" to={withPrefix("/")}>
-                    <img src={logo} alt="Landing Page Logo" />
-                </AnchorLink>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                   <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-                        {menuLinks.map(link => 
-                            <li className="nav-item"  key={link.label+link.to}>
-                                <AnchorLink className="nav-link active" to={withPrefix(link.to)}>{link.label}</AnchorLink>
-                            </li>
-                        )}
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    )
+const Navbar = () => {
+    return <>
+    <Helmet>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </Helmet>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div className="container-xl">
+      <a className="navbar-brand" href="#"><img src={'https://www.bgaprojeto.com/admin/wp-content/uploads/2021/08/Logo-Mini-Branco.png'} alt='brand icon' style={{ height: 24, margin: "-4px 8px 0 0" }}/>BGA Projeto</a>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className="navbar-nav">
+          <a className="nav-link active" aria-current="page" href="/">Home</a>
+          <a className="nav-link" href="#sobre" onClick={()=>navigate('#sobre')}>Sobre</a>
+          <a className="nav-link" href="#servicos" onClick={()=>navigate('#servicos')}>Serviços</a>
+          <a className="nav-link" href="#clientes" onClick={()=>navigate('#clientes')}>Clientes</a>
+          <a className="nav-link" href="#contato" onClick={()=>navigate('#contato')}>Contato</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  </>
 }
-export default Navbar
-/*
-const DropDown = () =>  
-<li className="nav-item dropdown">
-    <a className="nav-link dropdown-toggle" href="#dropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-        Dropdown
-    </a>
-    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><AnchorLink className="dropdown-item" to="/">Action</AnchorLink></li>
-        <li><AnchorLink className="dropdown-item" to="/">Another action</AnchorLink></li>
-        <li><AnchorLink className="dropdown-item" to="/">Something else here</AnchorLink></li>
-    </ul>
-</li>
 
-const MenuForm = () => 
-<form className="d-flex">
-    <input className="form-control mr-2" type="search" placeholder="Search" aria-label="Search" />
-    <button className="btn btn-outline-success" type="submit">Search</button>
-</form>
-
-const DisabledItem = () => 
-<li className="nav-item">
-    <AnchorLink className="nav-link disabled" to="/" tabIndex="-1" aria-disabled="true">Disabled</AnchorLink>
-</li>
-*/
+export default Navbar;

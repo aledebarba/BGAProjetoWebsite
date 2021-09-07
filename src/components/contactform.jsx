@@ -5,7 +5,7 @@ import emailjs from 'emailjs-com';
 const mail = {
     to: "contato@mailserver.com",
     subject: "Contato via website",
-    template: "template_vxdqg4r",
+    template: "template_qn0ppzp",
     service: "service_o1770tn",
     user: "user_ob7ANYoUgam3fIOOSo6f7"
 }
@@ -42,11 +42,10 @@ const ContactForm = (props) => {
 
    return(
        <>
-       
         <form onSubmit={handleSubmit(onSubmit)} className='d-flex flex-column contactform success'>
         <div className={formState}></div>
         <label htmlFor='name'>
-           <small className='col-3'>Name</small>
+           <small className='col-3'>Nome</small>
            <input name='name' placeholder='Digite o seu nome completo' type='text' ref={register( {required: true })} className='col' />
         </label>
         <label htmlFor='contactemail'>
@@ -66,7 +65,7 @@ const ContactForm = (props) => {
            <small>Sua mensagem</small>
            <textarea name='message' placeholder='Digite aqui o conteúdo de sua mensagem e depois selecione o botão "enviar mensagem".' ref={register( {required: true })}/>
         </label>
-        <div className="formbuttons">
+        <div className="formbuttons d-flex gap-2 mt-4 w-50">
             <input type="submit" className="btn btn-primary mr-2" value="Enviar mensagem" />
             <input type="reset" className="btn btn-danger" value="Limpar" onClick={()=>reset()}/>
         </div>

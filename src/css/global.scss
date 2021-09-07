@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 body { // type variables
-  --font-base-size: 16px;
+  --font-base-size: 20px;
 
   --font-1-name: "Montserrat"; 
   --font-1-light: 300;
@@ -25,22 +25,17 @@ body { // type variables
 
   --font-1: normal normal normal var(--font-1-size)/var(--font-1-lh) var(--font-1-name), Trebuchet, Arial, sans-serif;
   --font-2: normal normal normal var(--font-2-size)/var(--font-2-lh) var(--font-2-name), Georgia, Serif;
-  --font-1-color: #2b2b2b;
-  --font-1-color-light: #cfcfcf;
-  --font-2-color: rgb(75, 30, 4);
-  --font-2-color-light: rgb(204, 148, 116);
-}
+  
+  --font-color: #2b2b2b;
+  --font-color-light: #cfcfcf;
+  --font-color-secondary: rgb(75, 30, 4);
+  --font-color-light-secondary: rgb(204, 148, 116);
 
-@media (min-width: 768px) {
-  body {
-  --font-base-size: 18px;
-  } 
-}
-
-@media (min-width: 1024px) {
-  body {
- --font-base-size: 20px;
-  }
+  --font-1-color: var(--font-color);
+  --font-1-color-light: var(--font-color-light);
+  
+  --font-2-color: var(--font-color-secondary);
+  --font-2-color-light: var(--font-color-light-secondary);
 }
 
 // sass variables form color theming
@@ -54,64 +49,13 @@ body { // colors global definitions
   --bg-gradient-color-1: #00F3B9;
   --bg-gradient-color-2: #2187FF;
   
-  --navbar-brackground-color: #00000000;
-  --navitem-color: #f2f2f2;
-  --navitem-color-hover: gold;
-  
-  --page-background-hex: #{$pageBackgroundHex};
-  
-
   scroll-behavior: smooth;
-  background-color: var(--page-background-hex);
+  background-color: white;
   font: var(--font-1);
   color: var(--font-1-color);
   width: 100vw;
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-// css-spy custom attributes changes
-:root {
-  // css-spy checkpoints
-  --scroll-checkpoint: 200;
-  --page-scroll-y: 0;
-  --css-spy-scroll-flag: 0;
-}
-
-.css-spy-not-scrolled {
-  --navbar-background-color: #333333ff;
-  --navbar-logo-height: 32px;
-  @include media-breakpoint-up(md) {
-    --navbar-background-color:#333333ff;
-  }
-}
-.css-spy-scrolled {
-  --navbar-background-color: #333333ff;
-  --navbar-logo-height: 24px;
-}
-
-// global components
-
-.navbar {
-
-  transition: background-color 0.2s linear;
-  background-color: var(--navbar-background-color);
-
-  img {
-    transition: height 0.2s linear;
-    height: var(--navbar-logo-height);
-  }
-   
-  .nav-item {
-    font-size: calc(var(--font-1-size)*0.8);
-    padding: 4px;
-    a,p {
-      color: var(--navitem-color) !important;
-    }
-    a:hover {
-      color: var(--navitem-color-hover) !important;
-    }
-  }
 }
 
 h1 {
@@ -120,12 +64,14 @@ h1 {
   font-size: calc(var(--font-1-size)*3.5);
   line-height: calc(var(--font-1-lh)*3.5);
 }
+
 h2 {
   font-family: var(--font-1);
   color: var(--font-1-color);
   font-size: calc(var(--font-1-size)*2.5);
   line-height: calc(var(--font-1-lh)*2.5);
 }
+
 h3 {
   font: var(--font-1);
   font-weight: var(--font-1-bold);
@@ -137,31 +83,17 @@ p {
   font: var(--font-1);
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  video {
-    max-height: 50vh;
-    @include media-breakpoint-up(md) {
-      max-height: 100vh;
-    }
-  }
-}
-
 #header, #heroheader {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(39.97deg, var(--bg-gradient-color-1) 0.79%,  var(--bg-gradient-color-2) 79.29%);
     height: 100vh;
     overflow: hidden;
     
     h1 {
         text-align: center;
+        font-weight: bold;
+
     }
 
     h3 {
@@ -177,11 +109,41 @@ p {
     }   
 }
 
-#header {
-  height: 100vh;
+#header, #sobre, #servicos, #clientes, #footer, #contato {
+  padding-top: 3rem;
 }
 
-#Footer {
+
+#header {
+  height: 100vh;
+  position: relative;
+
+  .text-content {
+    z-index: 1;
+  }
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.4;
+      }
+  }
+}
+
+#sobre {
+  p {
+    line-height: 1.5;
+    color: var(--font-color);
+  }
+}
+#footer {
   position: relative;
   overflow: hidden;
   background-color: darken($pageBackgroundHex, 15%);
@@ -189,6 +151,58 @@ p {
     background-color: darken($pageBackgroundHex, 65%);
     color: var(--font-1-color-light);
     line-height: 0.9rem;
+  }
+}
+
+#servicos {
+  .accordion-item {
+    border-radius: 16px !important;
+    .accordion-header {
+      button.accordion-button {
+        font-weight: bold;
+        color: var(--font-color);
+        background-color: #f8f8f8;
+        border-radius: 16px;
+        box-shadow: 0px 5px 20px 0px #ccc;
+      }
+    }
+  }
+}
+
+#clientes {
+  .cliente-card {
+    height: 280px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 2rem;
+      color: var(--font-1-color-light);
+    }
+
+    img {
+      max-height: 108px;
+    }
+  }
+}
+
+#footer {
+  background: linear-gradient(0deg, #aaaaaaaa , #00000000 50%);
+  background-color: #e8e8e8;
+  border-bottom: 24px solid gray;
+  font-size: 1rem;
+  p, span, h4 {
+    font-size: 1rem !important;
+  }
+
+  ul {
+    list-style: square;
+    margin: 0;
+    padding: 16px;
   }
 }
 

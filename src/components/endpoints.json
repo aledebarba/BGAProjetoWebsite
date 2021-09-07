@@ -1,0 +1,13 @@
+{
+    "wordpress" : {
+        "content" : "https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options/content",
+        "options" : "https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options",
+        "messages" : "https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options/mensagens_padrao",
+        "header": "https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options/header",
+        "servicos": "https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options/servicos",
+        "clientes": "https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options/clientes",
+        "contato":"https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options/contact",
+        "footer": "https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options/footer",
+        "sobre": "https://www.bgaprojeto.com/admin/wp-json/acf/v3/options/options/sobre_a_empresa"
+     }
+}
