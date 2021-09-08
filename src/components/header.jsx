@@ -21,7 +21,6 @@ const Header = () => {
                 message: 'informações atualizadas',
                 content: wp_data.header
             })
-            console.log('here', data.content.botoes );
         } else {
             setData({
                 status: 'error',
@@ -40,8 +39,8 @@ const Header = () => {
           <Navbar />
           <header id='header'>
             <div className='video-container'>
-              <video autoPlay={true} loop={true} poster={'https://www.bgaprojeto.com/admin/wp-content/uploads/2021/09/video-poster.jpg'}>
-                <source src='https://www.bgaprojeto.com/admin/wp-content/uploads/2021/09/Sequence-01.mp4' />
+              <video autoPlay loop muted poster={'https://www.bgaprojeto.com/admin/wp-content/uploads/2021/09/video-poster.jpg'}>
+                <source src={'https://www.bgaprojeto.com/admin/wp-content/uploads/2021/09/Sequence-01.mp4'} type='video/mp4' />
               </video>
             </div>
             <div className='container-xl text-content'>
@@ -57,6 +56,18 @@ const Header = () => {
           </header>
           </>
         )}
+        {data.status === 'loading' && <>
+              <Navbar />
+              <header id='header'>
+                <div className='container-xl text-content'>
+                  <div className="row justify-content-center align-content-center">
+                    <div className="col-sm-11">
+                        <h1>Loading...</h1>
+                    </div>
+                  </div>
+                </div>
+              </header>
+        </>}
       </>
     )
   }

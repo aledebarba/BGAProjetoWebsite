@@ -19,7 +19,6 @@ const Footer = () => {
                 message: 'informações atualizadas',
                 content: wp_data.footer
             })
-            console.log(data.content)
         } else {
             setData({
                 status: 'error',
@@ -29,15 +28,15 @@ const Footer = () => {
         }
       }  
       getData();
-    }, [])
+    }, [dataUrl])
   
     return <>
     <div className="container-fluid" id='footer'>
-    <div className="containter-xl my-5">
+    <div className="containter my-5">
       <div className="row justify-content-center">
       {
         data.status === "ok"  && data.content.map( (coluna, index) => {
-          return <div className="col-sm-6 col-md-2" key={'footer-column'+index}>
+          return <div className="col-sm-12 col-md-4" key={'footer-column'+index}>
               <div dangerouslySetInnerHTML={{ __html:coluna.texto }}/>
           </div> })
       }

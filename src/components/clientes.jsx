@@ -19,7 +19,6 @@ const Clientes = () => {
                 message: 'informações atualizadas',
                 content: wp_data.clientes
             })
-            console.log('here => ', data.content )
         } else {
             setData({
                 status: 'error',
@@ -29,7 +28,7 @@ const Clientes = () => {
         }
       }  
       getData();
-    }, [])
+    }, [dataUrl])
   
     return <>
       <div className='container-xl my-5' id='clientes'>
@@ -37,7 +36,7 @@ const Clientes = () => {
           <div className="row">
           { data.status === 'ok' && data.content.map((cliente, index) => {
               return <div className="col-sm-6 col-md-3 col-lg-4 cliente-card" key={'cliente'+index}>
-                  <img src={cliente.cliente.marca.sizes.medium} />
+                  <img src={cliente.cliente.marca.sizes.medium} alt='marca ou logo de um de nossos clientes' />
                   <h3>{cliente.cliente.nome}</h3>
               </div>
             })

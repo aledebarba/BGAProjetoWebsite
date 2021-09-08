@@ -28,7 +28,7 @@ const Sobre = () => {
         }
       }  
       getData();
-    }, [])
+    }, [dataUrl])
   
     return <>
     <div className='container-xl my-5' id='sobre'>

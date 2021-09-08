@@ -143,10 +143,12 @@ p {
     color: var(--font-color);
   }
 }
+
 #footer {
   position: relative;
   overflow: hidden;
   background-color: darken($pageBackgroundHex, 15%);
+
   .disclaimer {
     background-color: darken($pageBackgroundHex, 65%);
     color: var(--font-1-color-light);
@@ -191,9 +193,9 @@ p {
 }
 
 #footer {
-  background: linear-gradient(0deg, #aaaaaaaa , #00000000 50%);
+  background: linear-gradient(0deg, hsl(21, 100%, 90%), #00000000 50%);
   background-color: #e8e8e8;
-  border-bottom: 24px solid gray;
+  border-bottom: 24px solid #CC8645;
   font-size: 1rem;
   p, span, h4 {
     font-size: 1rem !important;
@@ -324,4 +326,9 @@ p {
     80%   { opacity: 1; }
     100%  { opacity: 0; }     
   }
+}
+
+.custom-colors {
+  background-color:#2d3538!important;
+  box-shadow: 0 10px 120px 0px rgba(171, 83, 59, 0.5);
 }

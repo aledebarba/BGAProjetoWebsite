@@ -15,7 +15,6 @@ const Contatos = () => {
         const res = await fetch(dataUrl);
         if (res.ok) {
             const wp_data = await res.json();
-            console.log(wp_data)
             setData({
                 status: 'ok',
                 message: 'informações atualizadas',
@@ -30,7 +29,7 @@ const Contatos = () => {
         }
       }  
       getData();
-    }, [])
+    }, [dataUrl])
   
     return <>
     <div className="container-xl my-5 py-5" id='contato'>
